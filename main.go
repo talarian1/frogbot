@@ -87,8 +87,13 @@ func scanPullRequest(c *clitool.Context) error {
 	if err != nil {
 		return err
 	}
+	clientLog.Info("Auditing " + wd)
 	currentScan, err := runAudit(xrayScanParams, &server, wd)
+	if err != nil {
+		return err
+	}
 	// Audit target code
+	clientLog.Info("Auditing " + repo + " " + baseBranch)
 	previousScan, err := auditTarget(client, xrayScanParams, &server, repoOwner, repo, baseBranch)
 	if err != nil {
 		return err
