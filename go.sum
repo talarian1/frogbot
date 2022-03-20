@@ -288,8 +288,9 @@ github.com/mattn/go-runewidth v0.0.6/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m
 github.com/mattn/go-runewidth v0.0.9 h1:Lm995f3rfxdpd6TSmuVCHVb/QhupuXlYr8sCI/QdE+0=
 github.com/mattn/go-runewidth v0.0.9/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m2gUSrubnMI=
 github.com/mattn/go-tty v0.0.3/go.mod h1:ihxohKRERHTVzN+aSVRwACLCeqIoZAWpoICkkvrWyR0=
-github.com/mholt/archiver/v3 v3.5.1-0.20210618180617-81fac4ba96e4 h1:S7ICJmgiEB5WbKXg3CPL/qmJKxxKf33yJSkxqbdiTQA=
 github.com/mholt/archiver/v3 v3.5.1-0.20210618180617-81fac4ba96e4/go.mod h1:e3dqJ7H78uzsRSEACH1joayhuSyhnonssnDhppzS1L4=
+github.com/mholt/archiver/v3 v3.5.1 h1:rDjOBX9JSF5BvoJGvjqK479aL70qh9DIpZCl+k7Clwo=
+github.com/mholt/archiver/v3 v3.5.1/go.mod h1:e3dqJ7H78uzsRSEACH1joayhuSyhnonssnDhppzS1L4=
 github.com/miekg/dns v1.0.14/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
 github.com/minio/sha256-simd v1.0.1-0.20210617151322-99e45fae3395 h1:GpZ9VB5YQdXbVvgCeyqzBPYijxEMehMhax1fUpCuVSc=
 github.com/minio/sha256-simd v1.0.1-0.20210617151322-99e45fae3395/go.mod h1:f+LTnn56dRz2YGVXAZIW3myTjkbJhfyRDELQpWRHXto=
