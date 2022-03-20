@@ -187,11 +187,14 @@ func auditTarget(client vcsclient.VcsClient, xrayScanParams services.XrayGraphSc
 	if err != nil {
 		return
 	}
+	clientLog.Debug("Created temp working directory: " + tempWorkdir)
 	defer fileutils.RemoveTempDir(tempWorkdir)
+	clientLog.Debug(fmt.Sprintf("Downloading %s/%s , branch:%s to:%s", owner, repo, branch, tempWorkdir))
 	err = client.DownloadRepository(context.Background(), owner, repo, branch, tempWorkdir)
 	if err != nil {
 		return
 	}
+	clientLog.Debug("Downloaded target repository")
 	return runAudit(xrayScanParams, server, tempWorkdir)
 }
 
