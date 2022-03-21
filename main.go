@@ -267,8 +267,8 @@ func createPullRequestMessage(vulnerabilitiesRows []xrayutils.VulnerabilityRow) 
 	if len(vulnerabilitiesRows) == 0 {
 		return icons.GetIconTag(icons.NoVulnerabilityBannerSource)
 	}
-	tableHeder := `\n| SEVERITY | IMPACTED PACKAGE | IMPACTED PACKAGE  VERSION | FIXED VERSIONS | COMPONENT | COMPONENT VERSION | CVE 
-	:--: | -- | -- | -- | -- | :--: | --`
+	tableHeder := "\n| SEVERITY | IMPACTED PACKAGE | IMPACTED PACKAGE  VERSION | FIXED VERSIONS | COMPONENT | COMPONENT VERSION | CVE\n" +
+		":--: | -- | -- | -- | -- | :--: | --"
 	var tableContent string
 	for _, vulnerability := range vulnerabilitiesRows {
 		tableContent += fmt.Sprintf("\n| %s | %s | %s | %s | %s | %s | %s ", icons.GetIconTag(icons.GetIconSource(vulnerability.Severity)), vulnerability.ImpactedPackageName,
