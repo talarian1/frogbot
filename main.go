@@ -110,9 +110,15 @@ func scanPullRequest(c *clitool.Context) error {
 		return err
 	}
 	// Get only the new issues added by this PR
-	violations := getNewViolations(previousScan[0], currentScan[0]) // TODO - handle array of scan results!
+	var vulnerabilitiesRows []xrayutils.VulnerabilityRow
+	// TODO - handle array of scan results!
+	if len(currentScan[0].Violations) > 0 {
+		vulnerabilitiesRows = getNewViolations(previousScan[0], currentScan[0])
+	} else if len(currentScan[0].Vulnerabilities) > 0 {
+		vulnerabilitiesRows = getNewVulnerabilities(previousScan[0], currentScan[0])
+	}
 	// Comment frogbot message on the PR
-	message := createPullRequestMessage(violations)
+	message := createPullRequestMessage(vulnerabilitiesRows)
 	return client.AddPullRequestComment(context.Background(), repoOwner, repo, message, pullRequestID)
 
 }
