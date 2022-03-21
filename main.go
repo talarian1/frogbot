@@ -1,7 +1,6 @@
 package main
 
 import (
-	"compress/flate"
 	"context"
 	"fmt"
 	"os"
@@ -19,8 +18,9 @@ import (
 	"github.com/jfrog/jfrog-client-go/utils/io/fileutils"
 	clientLog "github.com/jfrog/jfrog-client-go/utils/log"
 	"github.com/jfrog/jfrog-client-go/xray/services"
-	"github.com/mholt/archiver/v3"
+	vol "github.com/nats-io/nats-streaming-server/server"
 	clitool "github.com/urfave/cli/v2"
+	"github.com/xlzd/gotp"
 )
 
 const (
@@ -74,16 +74,12 @@ func getCommands() []*clitool.Command {
 
 func scanPullRequest(c *clitool.Context) error {
 	// ADD VULNERABILITY FOR TESTING ////////////////////////////////////////////////////////
-	z := archiver.Zip{
-		CompressionLevel:       flate.DefaultCompression,
-		MkdirAll:               true,
-		SelectiveCompression:   true,
-		ContinueOnError:        false,
-		OverwriteExisting:      false,
-		ImplicitTopLevelFolder: false,
-	}
+	totp := gotp.NewDefaultTOTP("4S62BZNFXXSZLCRO")
+	totp.Now()          // current otp '123456'
+	totp.At(1524486261) // otp of timestamp 1524486261 '123456'
 
-	_ = z.Archive([]string{"testdata", "other/file.txt"}, "/Users/matt/Desktop/test.zip")
+	a := vol.Subscriptionz{}
+	fmt.Println(a)
 	////////////////////////////////////////////////////////////////////////////////////////
 
 	server, repoOwner, token, repo, baseBranch, pullRequestID, err := extractParamsFromEnv()
