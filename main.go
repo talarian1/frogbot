@@ -93,7 +93,7 @@ func scanPullRequest(c *clitool.Context) error {
 
 	// Audit PR code
 	// TODO - fill contex according to env/flags
-	xrayScanParams := services.XrayGraphScanParams{}
+	xrayScanParams := services.XrayGraphScanParams{IncludeVulnerabilities: true}
 	wd, err := os.Getwd()
 	if err != nil {
 		return err
