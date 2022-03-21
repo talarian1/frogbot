@@ -232,14 +232,17 @@ func getNewVulnerabilities(previousScan, currentScan services.ScanResponse) (new
 		return
 	}
 	for _, vulnerability := range vulnerabilitiesRows {
+		clientLog.Debug(GetUniqueID(vulnerability))
 		existsVulnerabilitiesMap[GetUniqueID(vulnerability)] = vulnerability
 	}
 	vulnerabilitiesRows, err = xrayutils.CreateVulnerabilitiesRows(currentScan.Vulnerabilities, false, false)
 	if err != nil {
 		return
 	}
-	for _, vulnerability := range vulnerabilitiesRows {
+	for i, vulnerability := range vulnerabilitiesRows {
+		clientLog.Debug("#" + strconv.FormatInt(int64(i), 10) + GetUniqueID(vulnerability))
 		if _, exists := existsVulnerabilitiesMap[GetUniqueID(vulnerability)]; !exists {
+			clientLog.Debug(GetUniqueID(vulnerability))
 			newVulnerabilitiesRows = append(newVulnerabilitiesRows, vulnerability)
 		}
 	}
