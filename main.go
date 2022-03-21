@@ -251,7 +251,7 @@ func getNewVulnerabilities(previousScan, currentScan services.ScanResponse) (new
 }
 
 func GetUniqueID(vulnerability xrayutils.VulnerabilityRow) string {
-	return vulnerability.IssueId + vulnerability.Components[0].Name
+	return vulnerability.ImpactedPackageName + vulnerability.ImpactedPackageVersion + vulnerability.IssueId
 
 }
 
