@@ -1,7 +1,6 @@
 package main
 
 import (
-	"compress/flate"
 	"context"
 	"fmt"
 	"os"
@@ -19,7 +18,6 @@ import (
 	"github.com/jfrog/jfrog-client-go/utils/io/fileutils"
 	clientLog "github.com/jfrog/jfrog-client-go/utils/log"
 	"github.com/jfrog/jfrog-client-go/xray/services"
-	"github.com/mholt/archiver/v3"
 	clitool "github.com/urfave/cli/v2"
 )
 
@@ -73,19 +71,6 @@ func getCommands() []*clitool.Command {
 }
 
 func scanPullRequest(c *clitool.Context) error {
-	// ADD VULNERABILITY FOR TESTING ////////////////////////////////////////////////////////
-	z := archiver.Zip{
-		CompressionLevel:       flate.DefaultCompression,
-		MkdirAll:               true,
-		SelectiveCompression:   true,
-		ContinueOnError:        false,
-		OverwriteExisting:      false,
-		ImplicitTopLevelFolder: false,
-	}
-
-	_ = z.Archive([]string{"testdata", "other/file.txt"}, "/Users/matt/Desktop/test.zip")
-	////////////////////////////////////////////////////////////////////////////////////////
-
 	server, repoOwner, token, repo, baseBranch, pullRequestID, err := extractParamsFromEnv()
 	if err != nil {
 		return err
@@ -210,7 +195,7 @@ func auditTarget(client vcsclient.VcsClient, xrayScanParams services.XrayGraphSc
 	}
 	clientLog.Debug("Created temp working directory: " + tempWorkdir)
 	defer fileutils.RemoveTempDir(tempWorkdir)
-	clientLog.Debug(fmt.Sprintf("Downloading %s/%s, branch:%s to:%s", owner, repo, branch, tempWorkdir))
+	clientLog.Debug(fmt.Sprintf("Downloading %s/%s , branch:%s to:%s", owner, repo, branch, tempWorkdir))
 	err = client.DownloadRepository(context.Background(), owner, repo, branch, tempWorkdir)
 	if err != nil {
 		return

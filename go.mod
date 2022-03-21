@@ -6,7 +6,6 @@ require (
 	github.com/jfrog/froggit-go v1.0.0
 	github.com/jfrog/jfrog-cli-core/v2 v2.10.1
 	github.com/jfrog/jfrog-client-go v1.10.0
-	github.com/mholt/archiver/v3 v3.5.1
 	github.com/urfave/cli/v2 v2.3.0
 
 )
@@ -49,6 +48,7 @@ require (
 	github.com/ktrysmt/go-bitbucket v0.9.36 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mattn/go-runewidth v0.0.9 // indirect
+	github.com/mholt/archiver/v3 v3.5.1-0.20210618180617-81fac4ba96e4 // indirect
 	github.com/minio/sha256-simd v1.0.1-0.20210617151322-99e45fae3395 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
