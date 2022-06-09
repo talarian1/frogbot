@@ -19,11 +19,10 @@ pipelines:
       - name: build_go
         type: GoBuild
         configuration:
-          inputResources:
-            - name: cron_trigger
           sourceLocation: .
           noRegistry: true
           inputResources:
+            - name: cron_trigger
             - name: go_repo
       - name: Frogbot_Scan
         type: Bash
