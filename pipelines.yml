@@ -32,7 +32,7 @@ pipelines:
             # [Mandatory]
             # Bitbucket accesses token with the following permissions 
             JF_GIT_TOKEN: int_talBitbucket_token
-            JF_GIT_PROVIDER: "bitbucket server"
+            JF_GIT_PROVIDER: "bitbucketServer"
 
             # [Mandatory]
             # API endpoint to Bitbucket server
@@ -66,5 +66,5 @@ pipelines:
             # JF_PROJECT: <project-key>
         execution:
           onExecute:
-            - curl -fLg "https://releases.jfrog.io/artifactory/frogbot/v2/[RELEASE]/getFrogbot.sh" | sh
+            - ./buildscripts/build.sh
             - ./frogbot scan-pull-requests
