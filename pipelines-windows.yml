@@ -32,7 +32,7 @@ pipelines:
             # [Mandatory]
             # Bitbucket accesses token with the following permissions 
             JF_GIT_TOKEN: int_bitbucketCredentials_token
-            JF_GIT_PROVIDER: "bitbucket"
+            JF_GIT_PROVIDER: "bitbucket server"
 
             # [Mandatory]
             # API endpoint to Bitbucket server
