@@ -11,9 +11,9 @@ pipelines:
       - name: Frogbot Scan
         type: Bash
         configuration:
-         integrations:
-          - name: jfrogPlatform
-          - name: bitbucketCredentials
+          integrations:
+            - name: jfrogPlatform
+            - name: bitbucketCredentials
           inputResources:
             - name: cron_trigger
           environmentVariables:
@@ -40,11 +40,11 @@ pipelines:
 
             # [Mandatory]
             # Bitbucket project namespace
-            JF_GIT_OWNER: ""
+            JF_GIT_OWNER: "~tala"
 
             # [Mandatory]
             # Bitbucket repository name
-            JF_GIT_REPO: ""
+            JF_GIT_REPO: "yahavi"
 
             # Uncomment the below options if you'd like to use them.
 
