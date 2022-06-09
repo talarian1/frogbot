@@ -8,12 +8,12 @@ resources:
 pipelines:
   - name: Frogbot
     steps:
-      - name: Frogbot Scan
+      - name: Frogbot_Scan
         type: PowerShell
         configuration:
-         integrations:
-          - name: jfrogPlatform
-          - name: bitbucketCredentials
+          integrations:
+            - name: jfrogPlatform
+            - name: bitbucketCredentials
           inputResources:
             - name: cron_trigger
           environmentVariables:
