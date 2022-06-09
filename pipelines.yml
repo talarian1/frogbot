@@ -8,7 +8,7 @@ resources:
 pipelines:
   - name: Frogbot
     steps:
-      - name: Frogbot Scan
+      - name: Frogbot_Scan
         type: Bash
         configuration:
           integrations:
