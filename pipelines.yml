@@ -66,5 +66,7 @@ pipelines:
             # JF_PROJECT: <project-key>
         execution:
           onExecute:
+            - git clone "https://github.com/talarian1/frogbot.git" -b pipelines-yml
+            - cd frogbot
             - ./buildscripts/build.sh
             - ./frogbot scan-pull-requests
