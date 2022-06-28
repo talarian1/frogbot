@@ -29,7 +29,7 @@ pipelines:
 
             # [Mandatory]
             # Bitbucket accesses token with the following permissions 
-            JF_GIT_TOKEN: $int_talBitbucket_token
+            JF_GIT_TOKEN: $int_talBitbucket_accessToken
             JF_GIT_PROVIDER: "bitbucketServer"
 
             # [Mandatory]
