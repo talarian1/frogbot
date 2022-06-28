@@ -4,34 +4,16 @@ resources:
     configuration:
       interval: '*/5 * * * *'     # Every 5 minutes
 
-  - name: go_repo
-    type: GitRepo
-    configuration:
-      path: talarian1/frogbot
-      branches:
-        include: pipelines-yml
-      gitProvider: tal_github
-
  
 pipelines:
   - name: Frogbot
     steps:
-      - name: build_go
-        type: GoBuild
-        configuration:
-          sourceLocation: .
-          noRegistry: true
-          inputResources:
-            - name: cron_trigger
-            - name: go_repo
       - name: Frogbot_Scan
         type: Bash
         configuration:
           integrations:
             - name: talJfrogPlatform
             - name: talBitbucket
-          inputSteps:
-            - name: build_go
           environmentVariables:
             # [Mandatory only for projects which use npm, pip, pipenv, nuget and dotnet to download their dependencies]
             # The command that installs the project dependencies (e.g "npm i", "nuget restore" or "dotnet restore")
