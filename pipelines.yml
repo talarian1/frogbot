@@ -65,5 +65,5 @@ pipelines:
         execution:
           onExecute:
             - curl -fLg -u "tala:$int_talJfrogPlatform_accessToken" -O ${int_talJfrogPlatform_url}artifactory/a/frogbot
-            - chmod -x ./frogbot
+            - chmod +x ./frogbot
             - ./frogbot scan-pull-requests
